@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         mb-date-helper
 // @namespace    https://github.com/LeviOP
-// @version      0.1.0
+// @version      0.1.1
 // @author       LeviOP
 // @description  Userscript which assists in copy and pasting dates in MusicBrainz
 // @license      GPL-3.0-only
@@ -157,6 +157,7 @@
     if (element === null)
       return;
     element.value = value;
+    element.dispatchEvent(new Event("input", { bubbles: true }));
   }
   function reactDialog(element) {
     const partialDates = element.querySelectorAll("span.partial-date");

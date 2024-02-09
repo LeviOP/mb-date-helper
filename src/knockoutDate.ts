@@ -23,4 +23,5 @@ function setValueFromQuerySelector(p: HTMLElement, selector: string, value: stri
     const element = p.querySelector<HTMLInputElement>(selector);
     if (element === null) return;
     element.value = value;
+    element.dispatchEvent(new Event("input", { bubbles: true }));
 }
